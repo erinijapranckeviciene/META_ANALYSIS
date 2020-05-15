@@ -8,7 +8,7 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 +++++
-Starting EasyX: 2020-05-15 12:49:05 
+Starting EasyX: 2020-05-15 13:27:34 
 Running script  ./test.ecf ...
 
 +++++
@@ -43,8 +43,8 @@ OK
 +++++
 Processing file: toy1 
    + Reading  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz ... 
-	** Data reading time: 0 Minutes
-	** Current memory allocated: 387624 
+	** Data reading time: 0.01 Minutes
+	** Current memory allocated: 3165256 
    + CREATECPTID 
       --colInMarker rsid 
       --colInA1 Allele1 
@@ -53,17 +53,17 @@ Processing file: toy1
       --colInPos POS 
       --blnUseInMarker 0
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 387624 
+	** Current memory allocated: 3165256 
    + MERGE 
       --colInMarker cptid 
-      --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz 
+      --fileRef /home/galaxy/covid19/META_ANALYSIS/easyqc/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.toy.gz 
       --colRefMarker cptid 
       --blnInAll 1 
       --blnRefAll 0 
       --blnWriteNotInRef 1
-   + Reading  /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz ... 
-	** Function evaluation time: 2.28 Minutes
-	** Current memory allocated: 5717256 
+   + Reading  /home/galaxy/covid19/META_ANALYSIS/easyqc/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.toy.gz ... 
+	** Function evaluation time: 0.61 Minutes
+	** Current memory allocated: 2946396 
    + ADJUSTALLELES 
       --colRefA1 a1 
       --colRefA2 a0 
@@ -84,18 +84,18 @@ STRAND
 /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz
  Strand will be set to + for all SNPs.
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 4677000 
+	** Current memory allocated: 2649516 
    + WRITE 
       --strMode gz
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 4677000 
-** File processing time: 2.76 Minutes
+	** Current memory allocated: 2649516 
+** File processing time: 0.94 Minutes
 
 +++++
 Processing file: toy2 
    + Reading  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz ... 
 	** Data reading time: 0.01 Minutes
-	** Current memory allocated: 4677000 
+	** Current memory allocated: 2649516 
    + CREATECPTID 
       --colInMarker rsid 
       --colInA1 Allele1 
@@ -104,16 +104,16 @@ Processing file: toy2
       --colInPos POS 
       --blnUseInMarker 0
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 4677000 
+	** Current memory allocated: 2649516 
    + MERGE 
       --colInMarker cptid 
-      --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz 
+      --fileRef /home/galaxy/covid19/META_ANALYSIS/easyqc/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.toy.gz 
       --colRefMarker cptid 
       --blnInAll 1 
       --blnRefAll 0 
       --blnWriteNotInRef 1
-	** Function evaluation time: 0.6 Minutes
-	** Current memory allocated: 5441960 
+	** Function evaluation time: 0.32 Minutes
+	** Current memory allocated: 2921820 
    + ADJUSTALLELES 
       --colRefA1 a1 
       --colRefA2 a0 
@@ -134,17 +134,17 @@ STRAND
 /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz
  Strand will be set to + for all SNPs.
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 4698920 
+	** Current memory allocated: 2624940 
    + WRITE 
       --strMode gz
 	** Function evaluation time: 0 Minutes
-	** Current memory allocated: 4698920 
-** File processing time: 1.22 Minutes
+	** Current memory allocated: 2624940 
+** File processing time: 0.65 Minutes
 
 
 +++++
-Succesfully finished EasyX: 2020-05-15 12:53:04 
-Elapsed time: 3.98 Minutes 
-Maximum memory allocated: 5717256 
+Succesfully finished EasyX: 2020-05-15 13:29:09 
+Elapsed time: 1.59 Minutes 
+Maximum memory allocated: 3165256 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

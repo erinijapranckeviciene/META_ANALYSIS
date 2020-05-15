@@ -1,3 +1,3 @@
 fileInShortName	numSNPsIn	numSNPsOut	CPTID.from_chr_pos	CPTID.nomatch	NotInRef	NotInIn	Checked	StrandChange	AlleleMatch	AlleleChange	n4AlleleMatch	n4AlleleChange	AlleleMismatch	AlleleInMissing	AlleleInInvalid	StrandInInvalid	AlleleRefMissing	AlleleRefInvalid	StrandRefInvalid
-toy1	199	181	199	0	107	38043404	92	0	0	92	0	0	0	0	18	0	89	0	0
-toy2	300	263	300	0	77	38043273	223	0	0	222	0	0	1	0	36	0	41	0	0
+toy1	199	181	199	0	107	18999907	92	0	0	92	0	0	0	0	18	0	89	0	0
+toy2	300	263	300	0	77	18999776	223	0	0	222	0	0	1	0	36	0	41	0	0

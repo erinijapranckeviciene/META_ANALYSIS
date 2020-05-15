@@ -35,7 +35,7 @@ CREATECPTID --colInMarker rsid
 # Notice : the merged file has first column cptid, then input columns, then reference columns
 #          if no acolIn is set. If acolIn is set, for some reason the script does not pass quality check 
 MERGE   --colInMarker cptid
-        --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz
+        --fileRef /home/galaxy/covid19/META_ANALYSIS/easyqc/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.toy.gz
 #       with this reference 108 out of 200 in toy1 were not in reference 
 #        --acolIn chr;id;position;a0;a1;CHR;POS;rsid;SNPID;Allele1;Allele2;AC_Allele2;AF_Allele2;imputationInfo;N;BETA;SE
         --colRefMarker cptid
