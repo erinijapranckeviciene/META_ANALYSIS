@@ -1,0 +1,65 @@
+# EasyQC installed as it is said here: https://www.uni-regensburg.de/medizin/epidemiologie-praeventivmedizin/genetische-epidemiologie/software/
+# This sequence is adapted from the example shared by  Louis Philippe Lemieux Perreault
+# The options and input datasets
+# See manual pages 5 and 6
+# Real data: try to create CPTID
+# Notice : the comment line generates an error in EasyQC. The column names must be without #
+# Notice : the fileInShortName if same for the datasets will not merge into one, but will be different files with name.xx added
+# Notice : it is better to name each dataset seperately, since each stage of analysis creates result files as  name.1.gz name.2.gz ,...
+# Notice : the output directory must already exist, the script does not create it
+# Notice : it is better to have absolute paths , with relative paths you run into problems
+# Notice : in execution the test creates *out file with the log - makes it clear what were the steps
+DEFINE  --pathOut /home/galaxy/covid19/META_ANALYSIS/easyqc/output
+        --strSeparator TAB
+        --acolIn CHR;POS;rsid;SNPID;Allele1;Allele2;AC_Allele2;AF_Allele2;imputationInfo;N;BETA;SE;Tstat;p.value;p.value.NA;Is.SPA.converge;varT;varTstar;AF.Cases;AF.Controls
+        --acolInClasses character;integer;character;character;character;character;double;double;double;numeric;double;double;double;double;double;numeric;double;double;double;double
+        --acolNewName CHR;POS;rsid;SNPID;Allele1;Allele2;AC_Allele2;AF_Allele2;imputationInfo;N;BETA;SE;Tstat;p.value;p.value.NA;Is.SPA.converge;varT;varTstar;AF.Cases;AF.Controls
+EASYIN  --fileIn /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz
+        --fileInShortName toy1
+EASYIN  --fileIn /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz
+        --fileInShortName toy2
+
+START EASYQC
+
+# See manual page 40
+# Real data : provide column names
+# Notice : the column cptid that has form CHR:POS is appended as last column after a function completes
+CREATECPTID --colInMarker rsid
+            --colInA1 Allele1
+            --colInA2 Allele2
+            --colInChr CHR
+            --colInPos POS
+            --blnUseInMarker 0
+
+# See manual page 22
+# Notice : the merged file has first column cptid, then input columns, then reference columns
+#          if no acolIn is set. If acolIn is set, for some reason the script does not pass quality check 
+MERGE   --colInMarker cptid
+        --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz
+#       with this reference 108 out of 200 in toy1 were not in reference 
+#        --acolIn chr;id;position;a0;a1;CHR;POS;rsid;SNPID;Allele1;Allele2;AC_Allele2;AF_Allele2;imputationInfo;N;BETA;SE
+        --colRefMarker cptid
+        --blnInAll 1
+        --blnRefAll 0
+        --blnWriteNotInRef 1
+
+# See manual page 8
+ADJUSTALLELES   --colRefA1 a1
+                --colRefA2 a0
+                --colInStrand STRAND
+                --colInA1 Allele1
+                --colInA2 Allele2
+                --colInFreq AF_Allele2
+#               not sure if this is a right column of the input allele frequency @juha 
+                --colInBeta BETA
+                --blnMetalUseStrand 1
+                --blnWriteMismatch 1
+                --blnRemoveMismatch 1
+                --blnWriteInvalid 1
+                --blnRemoveInvalid 1
+
+
+# See manual page 35
+WRITE   --strMode gz
+
+STOP EASYQC

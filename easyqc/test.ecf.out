@@ -1,0 +1,150 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|       EasyQC      |    v9.2     |    24/September/2014     |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  (C) 2013 Thomas Winkler, GNU General Public License, v3   |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  For bug-report, please e-mail:                            |
+|  thomas.winkler@klinik.uni-regensburg.de                   |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++++
+Starting EasyX: 2020-05-15 12:49:05 
+Running script  ./test.ecf ...
+
++++++
+Getting list of input files ...
+Using:
+   +  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz 
+   +  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz 
+
++++++
+Default output path is 
+/home/galaxy/covid19/META_ANALYSIS/easyqc/output
+
++++++
+Performing validity check on 10 rows from each file :
+
+   +  toy1 ->  EASY WARNING:ADJUSTALLELES
+ Defined column colInStrand 
+STRAND
+ is not available in GWA data-set 
+/home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz
+ Strand will be set to + for all SNPs.
+OK
+   +  toy2 ->  EASY WARNING:ADJUSTALLELES
+ Defined column colInStrand 
+STRAND
+ is not available in GWA data-set 
+/home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz
+ Strand will be set to + for all SNPs.
+OK
+ Passed validity check!
+
++++++
+Processing file: toy1 
+   + Reading  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz ... 
+	** Data reading time: 0 Minutes
+	** Current memory allocated: 387624 
+   + CREATECPTID 
+      --colInMarker rsid 
+      --colInA1 Allele1 
+      --colInA2 Allele2 
+      --colInChr CHR 
+      --colInPos POS 
+      --blnUseInMarker 0
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 387624 
+   + MERGE 
+      --colInMarker cptid 
+      --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz 
+      --colRefMarker cptid 
+      --blnInAll 1 
+      --blnRefAll 0 
+      --blnWriteNotInRef 1
+   + Reading  /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz ... 
+	** Function evaluation time: 2.28 Minutes
+	** Current memory allocated: 5717256 
+   + ADJUSTALLELES 
+      --colRefA1 a1 
+      --colRefA2 a0 
+      --colInStrand STRAND 
+      --colInA1 Allele1 
+      --colInA2 Allele2 
+      --colInFreq AF_Allele2 
+      --colInBeta BETA 
+      --blnMetalUseStrand 1 
+      --blnWriteMismatch 1 
+      --blnRemoveMismatch 1 
+      --blnWriteInvalid 1 
+      --blnRemoveInvalid 1
+ EASY WARNING:ADJUSTALLELES
+ Defined column colInStrand 
+STRAND
+ is not available in GWA data-set 
+/home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz
+ Strand will be set to + for all SNPs.
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 4677000 
+   + WRITE 
+      --strMode gz
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 4677000 
+** File processing time: 2.76 Minutes
+
++++++
+Processing file: toy2 
+   + Reading  /home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz ... 
+	** Data reading time: 0.01 Minutes
+	** Current memory allocated: 4677000 
+   + CREATECPTID 
+      --colInMarker rsid 
+      --colInA1 Allele1 
+      --colInA2 Allele2 
+      --colInChr CHR 
+      --colInPos POS 
+      --blnUseInMarker 0
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 4677000 
+   + MERGE 
+      --colInMarker cptid 
+      --fileRef /home/galaxy/covid19/reference/allelefreq.1000G_EUR_p1v3.impute_legends.noDup.noX.gz 
+      --colRefMarker cptid 
+      --blnInAll 1 
+      --blnRefAll 0 
+      --blnWriteNotInRef 1
+	** Function evaluation time: 0.6 Minutes
+	** Current memory allocated: 5441960 
+   + ADJUSTALLELES 
+      --colRefA1 a1 
+      --colRefA2 a0 
+      --colInStrand STRAND 
+      --colInA1 Allele1 
+      --colInA2 Allele2 
+      --colInFreq AF_Allele2 
+      --colInBeta BETA 
+      --blnMetalUseStrand 1 
+      --blnWriteMismatch 1 
+      --blnRemoveMismatch 1 
+      --blnWriteInvalid 1 
+      --blnRemoveInvalid 1
+ EASY WARNING:ADJUSTALLELES
+ Defined column colInStrand 
+STRAND
+ is not available in GWA data-set 
+/home/galaxy/covid19/META_ANALYSIS/easyqc/munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy2.gz
+ Strand will be set to + for all SNPs.
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 4698920 
+   + WRITE 
+      --strMode gz
+	** Function evaluation time: 0 Minutes
+	** Current memory allocated: 4698920 
+** File processing time: 1.22 Minutes
+
+
++++++
+Succesfully finished EasyX: 2020-05-15 12:53:04 
+Elapsed time: 3.98 Minutes 
+Maximum memory allocated: 5717256 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

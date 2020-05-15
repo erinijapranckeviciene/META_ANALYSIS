@@ -1,0 +1,69 @@
+# The options and input datasets
+# See manual pages 5 and 6
+DEFINE  --pathOut /PATH/TO/OUT/DIRECTORY
+        --strSeparator TAB
+        --acolIn MARKER;STRAND;CHR;POS;EFFECT_ALLELE;OTHER_ALLELE;...
+        --acolInClasses character;character;character;integer;character;character;...
+        --acolNewName MARKER;STRAND;CHR;POS;EFFECT_ALLELE;OTHER_ALLELE;...
+
+EASYIN  --fileIn /PATH/TO/FIRST/DATASET
+        --fileInShortName dataset2
+EASYIN  --fileIn /PATH/TO/SECOND/DATASET
+        --fileInShortName dataset2
+EASYIN  --fileIn /PATH/TO/THIRD/DATASET
+        --strSeparator SPACE
+        --fileInShortName dataset3
+        --acolIn chr;marker;pos;effect_allele;other_allele;...
+        --acolInClasses character;character;integer;character;character;...
+        --acolNewName CHR;MARKER;POS;EFFECT_ALLELE;OTHER_ALLELE;...
+
+START EASYQC
+
+# See manual page 40
+CREATECPTID --colInMarker MARKER
+            --colInA1 EFFECT_ALLELE
+            --colInA2 OTHER_ALLELE
+            --colInChr CHR
+            --colInPos POS
+            --blnUseInMarker 0
+
+# See manual page 22
+MERGE   --colInMarker cptid
+        --fileRef /PATH/TO/REF/FILE
+        --acolIn chr;id;position;a0;a1;...
+        --colRefMarker cptid
+        --blnInAll 1
+        --blnRefAll 0
+        --blnWriteNotInRef 1
+
+# See manual page 8
+ADJUSTALLELES   --colRefA1 a1
+                --colRefA2 a0
+                --colInStrand STRAND
+                --colInA1 EFFECT_ALLELE
+                --colInA2 OTHER_ALLELE
+                --colInFreq EAF
+                --colInBeta BETA
+                --blnMetalUseStrand 1
+                --blnWriteMismatch 1
+                --blnRemoveMismatch 1
+                --blnWriteInvalid 1
+                --blnRemoveInvalid 1
+
+# See manual page 36
+AFCHECK --colInMarker cptid
+        --colInA1 EFFECT_ALLELE
+        --colInA2 OTHER_ALLELE
+        --colInFreq EAF
+        --colInStrand STRAND
+        --colRefMarker cptid
+        --colRefA1 a1
+        --colRefA2 a0
+        --colRefFreq EUR
+        --blnMetalUseStrand 1
+
+# See manual page 35
+WRITE   --strMode gz
+
+STOP EASYQC
+

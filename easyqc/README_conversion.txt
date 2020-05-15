@@ -1,0 +1,77 @@
+# These are  three lines and all columns of the toy1 data before applying EasyQC steps 
+#zcat ../munged/20200426_munged_BioMe_RGN.Moscati.Analysis5.1.ALL.EUR.20.10169.SAIGE.20200427.txt.munged.toy1.gz | head -n3 | datamash transpose | cat -n > conversion.txt
+
+     1	CHR	1	1
+     2	POS	10352	10616
+     3	rsid	rs145072688	rs376342519
+     4	SNPID	---	---
+     5	Allele1	T	CCGCCGTTGCAAAGGCGCGCCG
+     6	Allele2	TA	C
+     7	AC_Allele2	8332.92941176462	19320.8196078431
+     8	AF_Allele2	0.42680441568145	0.989593300954883
+     9	imputationInfo	0.51750197222408	0.751629529395558
+    10	N	9762	9762
+    11	BETA	0.266398448288884	0.50155812333455
+    12	SE	0.44573749121511	1.70330805922587
+    13	Tstat	1.34082890006363	0.172876064023724
+    14	p.value	0.550068348759993	0.768405512975115
+    15	p.value.NA	0.550068348759993	0.768405512975115
+    16	Is.SPA.converge	1	1
+    17	varT	5.03317083367403	0.344678026296091
+    18	varTstar	5.03317082800245	0.344678025907694
+    19	AF.Cases	0.461470588235294	0.993725490196078
+    20	AF.Controls	0.426733247189247	0.989584817708648
+
+# These are the same three lines and all columns of the toy1 data AFTER applying EasyQC steps 
+# CREATECPTID , MERGE and ADJUSTALLELE as in test.ecf
+# zcat output/toy1.gz | head -n3 | datamash transpose | cat -n >> conversion.txt
+# AF_Allele2 and BETA and some other fields changed
+
+
+     1	cptid	1:30923	1:52238
+     2	CHR	1	1
+     3	POS	30923	52238
+     4	rsid	rs140337953	rs150021059
+     5	SNPID	---	---
+     6	Allele1	T	G
+     7	Allele2	G	T
+     8	AC_Allele2	18110.8509803922	19118.0980392157
+     9	AF_Allele2	0.072380097296036	0.020789897602147
+    10	imputationInfo	0.545951846612081	0.525837367297756
+    11	N	9762	9762
+    12	BETA	1.0184465566136	-1.83057666732957
+    13	SE	0.961876029240023	1.8988175574084
+    14	Tstat	-1.10077875826267	0.507716695752927
+    15	p.value	0.289685088144775	0.335015155529399
+    16	p.value.NA	0.289685088144775	0.335015155529399
+    17	Is.SPA.converge	1	1
+    18	varT	1.08084096422579	0.277353418086323
+    19	varTstar	1.08084096300785	0.27735341777379
+    20	AF.Cases	0.901372549019608	0.992647058823529
+    21	AF.Controls	0.927673787642752	0.979182516775957
+    22	a0	G	T
+    23	a1	T	G
+    24	eaf	0.272	0.049
+
+
+# These are the columns from the munged file
+     1	#CHR	1
+     2	POS	10352
+     3	rsid	rs145072688
+     4	SNPID	---
+     5	Allele1	T
+     6	Allele2	TA
+     7	AC_Allele2	8332.92941176462
+     8	AF_Allele2	0.42680441568145
+     9	imputationInfo	0.51750197222408
+    10	N	9762
+    11	BETA	0.266398448288884
+    12	SE	0.44573749121511
+    13	Tstat	1.34082890006363
+    14	p.value	0.550068348759993
+    15	p.value.NA	0.550068348759993
+    16	Is.SPA.converge	1
+    17	varT	5.03317083367403
+    18	varTstar	5.03317082800245
+    19	AF.Cases	0.461470588235294
+    20	AF.Controls	0.426733247189247
